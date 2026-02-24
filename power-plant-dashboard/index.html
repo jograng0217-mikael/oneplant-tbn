@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Won Plant Operations Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="dashboard-container simplified">
+        <header>
+            <div class="logo">
+                <span class="pulse-icon"></span>
+                <a href="http://www.oneplant.net/main/index.html" class="brand-link" target="_blank">
+                    <h1>원프랜트</h1>
+                </a>
+            </div>
+            <div class="system-status">
+                <span class="status-indicator online"></span>
+                SYSTEM ONLINE
+            </div>
+            <div class="time-display" id="clock">00:00:00</div>
+        </header>
+
+        <main class="grid-layout">
+            <!-- Operational Actions Board -->
+            <section class="action-board centered">
+                <a href="https://advsnet.komipo.co.kr:19091/" class="action-card glass clickable" target="_blank">
+                    <div class="icon">⚠️</div>
+                    <div class="label">위험성평가 발행</div>
+                </a>
+                <div class="action-card glass clickable" onclick="handleAction('작업지시서')">
+                    <div class="icon">📋</div>
+                    <div class="label">작업지시서</div>
+                </div>
+                <div class="action-card glass clickable" onclick="handleAction('MBCW')">
+                    <div class="icon">🌬️</div>
+                    <div class="label">MBCW Air Blowing</div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
