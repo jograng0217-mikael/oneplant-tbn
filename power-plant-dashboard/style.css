@@ -1,12 +1,13 @@
 :root {
-    --bg-color: #0d0f14;
-    --card-bg: rgba(25, 30, 40, 0.6);
-    --accent-cyan: #00f2ff;
-    --accent-amber: #ffb400;
-    --accent-red: #ff4d4d;
-    --text-primary: #e0e6ed;
-    --text-secondary: #94a3b8;
-    --border-color: rgba(255, 255, 255, 0.1);
+    --bg-color: #ffffff;
+    --card-bg: rgba(240, 244, 248, 0.8);
+    --accent-cyan: #0072ff;
+    /* Deeper blue for white background */
+    --accent-amber: #f59e0b;
+    --accent-red: #ef4444;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -34,17 +35,60 @@ body {
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 40px;
 }
 
-.logo {
+.logo-container {
     display: flex;
     align-items: center;
     gap: 12px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+    cursor: pointer;
+}
+
+.logo-container:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px rgba(255, 61, 0, 0.2));
+}
+
+.logo-glyph {
+    background-color: #ff3d00;
+    /* Bright orange-red as seen in image */
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 0.9rem;
+    letter-spacing: -0.5px;
+}
+
+.logo-text-group {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.company-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #000;
+    white-space: nowrap;
+}
+
+.brand-name {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #000;
+    letter-spacing: -1px;
+    line-height: 1;
 }
 
 .brand-link {
@@ -57,40 +101,23 @@ header {
     opacity: 0.8;
 }
 
-.brand-link h1 {
-    font-size: 1.8rem;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    background: linear-gradient(to right, #fff, var(--accent-cyan));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* Pulse icon and animations removed */
+
+.banner-section {
+    width: 100%;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.pulse-icon {
-    width: 14px;
-    height: 14px;
-    background-color: var(--accent-cyan);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent-cyan);
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(0, 242, 255, 0.7);
-    }
-
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 10px rgba(0, 242, 255, 0);
-    }
-
-    100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(0, 242, 255, 0);
-    }
+.banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-height: 300px;
+    /* Limit height to keep it panoramic */
 }
 
 .grid-layout {
@@ -131,16 +158,40 @@ header {
     text-decoration: none;
 }
 
+.action-card.risk-assessment {
+    background: #ef4444;
+}
+
+.action-card.risk-assessment .label {
+    color: white;
+}
+
+.action-card.work-order {
+    background: #22c55e;
+}
+
+.action-card.work-order .label {
+    color: white;
+}
+
+.action-card.air-blowing {
+    background: #3b82f6;
+}
+
+.action-card.air-blowing .label {
+    color: white;
+}
+
 .action-card .icon {
     font-size: 3rem;
-    background: rgba(0, 242, 255, 0.05);
+    background: rgba(255, 255, 255, 0.2);
     width: 80px;
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 20px;
-    border: 1px solid rgba(0, 242, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     transition: transform 0.3s ease;
 }
 

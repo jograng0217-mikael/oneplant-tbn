@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>터빈설비과 작업지시서 실시간 보드 - Won Plant</title>
+    <link rel="stylesheet" href="turbine-board.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="work-order.html" class="back-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </a>
+            <div class="logo-circle">
+                <img src="images/logo_icon.png" alt="Logo" onerror="this.src='https://via.placeholder.com/40?text=ONE'">
+            </div>
+            <div class="title-group">
+                <h1>작업지시서 실시간 보드</h1>
+                <div class="subtitle-group">
+                    <span>원프랜트 터빈설비과</span>
+                    <a href="#" class="img-change">[이미지변경]</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="summary-grid">
+            <div class="summary-card card-urgent">
+                <div class="card-icon">⚠️</div>
+                <div class="card-info">
+                    <span class="info-label">긴급 마감</span>
+                    <span class="info-value">1건</span>
+                </div>
+            </div>
+            <div class="summary-card card-total">
+                <div class="card-icon">🕒</div>
+                <div class="card-info">
+                    <span class="info-label">전체 미완료</span>
+                    <span class="info-value">2건</span>
+                </div>
+            </div>
+            <a href="#" class="summary-card card-data">
+                <div class="card-icon">📄</div>
+                <div class="card-info">
+                    <span class="info-label">데이터 관리</span>
+                    <span class="info-value">시트 바로가기</span>
+                </div>
+            </a>
+            <a href="#" class="summary-card card-search">
+                <div class="card-icon">🔍</div>
+                <div class="card-info">
+                    <span class="info-label">통합 현황 검색</span>
+                    <span class="info-value">지시서 전체 검색</span>
+                </div>
+            </a>
+        </section>
+
+        <section class="work-list-section">
+            <div class="list-header">
+                <div class="list-title">전체 미완료 리스트</div>
+                <div class="list-count">2건</div>
+            </div>
+
+            <!-- List Item 1 -->
+            <div class="work-item">
+                <div class="item-badge-group">
+                    <span class="badge-month">2월</span>
+                    <span class="badge-status">#미완료</span>
+                </div>
+                <div class="item-content">
+                    <div class="item-order">오더: 1469821</div>
+                    <div class="item-title">거품제거설비 #1 교반용 펌프 전원케이블 정비</div>
+                </div>
+                <div class="item-metadata">
+                    <div class="meta-info">👤 용세중</div>
+                    <div class="meta-info meta-date">📅 2026-02-27</div>
+                    <div class="meta-info meta-dday">D-3</div>
+                </div>
+            </div>
+
+            <!-- List Item 2 -->
+            <div class="work-item">
+                <div class="item-badge-group">
+                    <span class="badge-month">2월</span>
+                    <span class="badge-status">#미완료</span>
+                </div>
+                <div class="item-content">
+                    <div class="item-order">오더: 1470063</div>
+                    <div class="item-title">3,4호기 화재예방 안전진단 관련 소화설비 개선</div>
+                </div>
+                <div class="item-metadata">
+                    <div class="meta-info">👤 정동근</div>
+                    <div class="meta-info">📅 2026-03-06</div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

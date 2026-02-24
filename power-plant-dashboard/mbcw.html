@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBCW Air Blowing - Won Plant</title>
+    <link rel="stylesheet" href="mbcw.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content glass">
+                <a href="index.html" class="brand-link">
+                    <div class="logo-container">
+                        <div class="logo-glyph">ONE</div>
+                        <div class="logo-text-group">
+                            <span class="company-name">주식회사</span>
+                            <h1 class="brand-name">원프랜트</h1>
+                        </div>
+                    </div>
+                </a>
+                <div class="header-subtitle">MBCW Air Blowing (SLP #3)</div>
+            </div>
+        </header>
+
+        <section class="banner-section">
+            <img src="images/power_plant_banner.png" alt="Power Plant Banner" class="banner-image">
+        </section>
+
+        <main class="mbcw-content">
+            <!-- Top Row: Action Buttons -->
+            <div class="action-row">
+                <button class="action-btn slp3-btn active" onclick="location.href='mbcw.html'">SLP #3</button>
+                <button class="action-btn slp4-btn" onclick="location.href='mbcw_slp4.html'">SLP #4</button>
+                <button class="action-btn inspection-btn" onclick="toggleMonthlyLog()">
+                    이번달 점검
+                    <span class="monthly-count" id="monthly-inspection-count">0번</span>
+                </button>
+                <button class="action-btn stats-btn">전체 통계 보기</button>
+            </div>
+
+            <!-- Bottom Row: Monitoring Dials -->
+            <div class="monitoring-row">
+                <div class="monitor-unit">
+                    <div class="dial" onclick="toggleControls('slp3-a')">
+                        <span class="dial-label">A</span>
+                        <span class="dial-sub">SLP #3</span>
+                    </div>
+                    <div class="status-box" id="count-slp3-a">누적 0회</div>
+                    <div class="control-panel" id="controls-slp3-a">
+                        <button class="btn-ok" onclick="handleOk('slp3-a', '3')">OK</button>
+                        <button class="btn-cancel" onclick="toggleControls('slp3-a')">CANCEL</button>
+                        <button class="btn-reset" onclick="requestReset('slp3-a')">RESET</button>
+                    </div>
+                    <div class="log-box" id="log-slp3-a">-</div>
+                </div>
+                <div class="monitor-unit">
+                    <div class="dial" onclick="toggleControls('slp3-b')">
+                        <span class="dial-label">B</span>
+                        <span class="dial-sub">SLP #3</span>
+                    </div>
+                    <div class="status-box" id="count-slp3-b">누적 0회</div>
+                    <div class="control-panel" id="controls-slp3-b">
+                        <button class="btn-ok" onclick="handleOk('slp3-b', '3')">OK</button>
+                        <button class="btn-cancel" onclick="toggleControls('slp3-b')">CANCEL</button>
+                        <button class="btn-reset" onclick="requestReset('slp3-b')">RESET</button>
+                    </div>
+                    <div class="log-box" id="log-slp3-b">-</div>
+                </div>
+                <div class="monitor-unit">
+                    <div class="dial" onclick="toggleControls('slp3-c')">
+                        <span class="dial-label">C</span>
+                        <span class="dial-sub">SLP #3</span>
+                    </div>
+                    <div class="status-box" id="count-slp3-c">누적 0회</div>
+                    <div class="control-panel" id="controls-slp3-c">
+                        <button class="btn-ok" onclick="handleOk('slp3-c', '3')">OK</button>
+                        <button class="btn-cancel" onclick="toggleControls('slp3-c')">CANCEL</button>
+                        <button class="btn-reset" onclick="requestReset('slp3-c')">RESET</button>
+                    </div>
+                    <div class="log-box" id="log-slp3-c">-</div>
+                </div>
+                <div class="monitor-unit">
+                    <div class="dial" onclick="toggleControls('slp3-d')">
+                        <span class="dial-label">D</span>
+                        <span class="dial-sub">SLP #3</span>
+                    </div>
+                    <div class="status-box" id="count-slp3-d">누적 0회</div>
+                    <div class="control-panel" id="controls-slp3-d">
+                        <button class="btn-ok" onclick="handleOk('slp3-d', '3')">OK</button>
+                        <button class="btn-cancel" onclick="toggleControls('slp3-d')">CANCEL</button>
+                        <button class="btn-reset" onclick="requestReset('slp3-d')">RESET</button>
+                    </div>
+                    <div class="log-box" id="log-slp3-d">-</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="mbcw.js"></script>
+</body>
+
+</html>
