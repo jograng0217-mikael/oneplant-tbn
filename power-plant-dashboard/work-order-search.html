@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>통합 작업지시서 현황 - Won Plant</title>
+    <link rel="stylesheet" href="work-order-search.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="turbine-board.html" class="back-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </a>
+            <div class="logo-circle">
+                <img src="images/logo_icon.png" alt="Logo" onerror="this.src='https://via.placeholder.com/40?text=ONE'">
+            </div>
+            <div class="title-group">
+                <h1>통합 작업지시서 현황</h1>
+                <div class="subtitle-group">
+                    <span>원프랜트 터빈전기과</span>
+                    <a href="#" class="img-change">[이미지변경]</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="search-container">
+            <div class="search-input-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="work-search-input" placeholder="설계자, 작업명, 오더번호를 입력하세요..." class="search-input">
+            </div>
+        </section>
+
+        <section class="work-list-section">
+            <div class="list-header">
+                <div class="list-title">전체 지시서 목록</div>
+                <div class="list-count" id="results-count">9건</div>
+            </div>
+
+            <div id="work-items-list">
+                <!-- Data will be loaded here dynamically -->
+                <div class="empty-state">데이터를 불러오는 중입니다...</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Data Script -->
+    <script>
+        const MOCK_DATA = [
+            { month: "2월", status: "pending", order: "1469821", title: "거품제거설비 #1 교반용 펌프 전원케이블 정비", user: "용세중", date: "2026-02-27", dday: "D-2", urgent: true },
+            { month: "2월", status: "pending", order: "1470063", title: "3,4호기 화재예방 안전진단 관련 소화설비 개선", user: "정동근", date: "2026-03-06" },
+            { month: "2월", status: "completed", order: "1470478", title: "#3,4 D/G Digital Indicator 교체", user: "한상화", date: "2026-03-09" },
+            { month: "2월", status: "completed", order: "1471551", title: "3호기 TBN Area 화재 감자기 이설(2EA)", user: "여광재", date: "2026-03-06" },
+            { month: "2월", status: "completed", order: "1469732", title: "#2 SLP Sump High Level 동작스위치 불량", user: "한상화", date: "2026-03-03" },
+            { month: "1월", status: "completed", order: "1468858", title: "3,4호기 Emergency D/G Control PNL Indyvator 점검", user: "정동근", date: "2026-02-27" },
+            { month: "1월", status: "completed", order: "1467982", title: "#3,4 옥외약품저장창고 Trench Sump Pump 전원 포설", user: "용세중", date: "2026-02-27" },
+            { month: "1월", status: "completed", order: "1468884", title: "#3 LV-218 Fault 발생 관련 현장 점검 및 정비", user: "한상화", date: "2026-02-23" },
+            { month: "1월", status: "completed", order: "1467001", title: "터빈 제어유 가압펌프 전동기 권선 저항 측정", user: "여광재", date: "2026-02-15" }
+        ];
+
+        function renderList(items) {
+            const listContainer = document.getElementById('work-items-list');
+            const countDisplay = document.getElementById('results-count');
+
+            countDisplay.innerText = `${items.length}건`;
+
+            if (items.length === 0) {
+                listContainer.innerHTML = '<div class="empty-state">검색 결과가 없습니다.</div>';
+                return;
+            }
+
+            listContainer.innerHTML = items.map(item => `
+                <div class="work-item ${item.urgent ? 'status-urgent' : ''}">
+                    <div class="item-badge-group">
+                        <span class="badge badge-month">${item.month}</span>
+                        <span class="badge ${item.status === 'pending' ? 'badge-status-pending' : 'badge-status-completed'}">
+                            ${item.status === 'pending' ? '#미완료' : '#완료'}
+                        </span>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-order">오더: ${item.order}</div>
+                        <div class="item-title">${item.title}</div>
+                    </div>
+                    <div class="item-metadata">
+                        <div class="meta-info meta-user">👤 ${item.user}</div>
+                        <div class="meta-info meta-date">📅 ${item.date}</div>
+                        ${item.dday ? `<div class="meta-info meta-dday">${item.dday}</div>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Search logic
+        document.getElementById('work-search-input').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const filtered = MOCK_DATA.filter(item =>
+                item.title.toLowerCase().includes(query) ||
+                item.user.toLowerCase().includes(query) ||
+                item.order.toLowerCase().includes(query)
+            );
+            renderList(filtered);
+        });
+
+        // Initial render
+        window.onload = () => renderList(MOCK_DATA);
+    </script>
+</body>
+
+</html>
