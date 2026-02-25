@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Won Plant Operations Portal</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="power-plant-dashboard/style.css">
 </head>
 
 <body>
@@ -25,7 +25,8 @@
         </header>
 
         <section class="banner-section">
-            <img src="images/power_plant_banner.png" alt="Power Plant Banner" class="banner-image">
+            <img src="power-plant-dashboard/images/power_plant_banner.png" alt="Power Plant Banner"
+                class="banner-image">
         </section>
 
         <main class="grid-layout">
@@ -36,11 +37,13 @@
                     <div class="icon">⚠️</div>
                     <div class="label">위험성평가 발행</div>
                 </a>
-                <div class="action-card work-order glass clickable" onclick="handleAction('작업지시서')">
+                <div class="action-card work-order glass clickable"
+                    onclick="location.href='power-plant-dashboard/work-order.html'">
                     <div class="icon">📋</div>
                     <div class="label">작업지시서</div>
                 </div>
-                <div class="action-card air-blowing glass clickable" onclick="handleAction('MBCW')">
+                <div class="action-card air-blowing glass clickable"
+                    onclick="location.href='power-plant-dashboard/mbcw.html'">
                     <div class="icon">🌬️</div>
                     <div class="label">MBCW Air Blowing</div>
                 </div>
@@ -48,7 +51,7 @@
 
         </main>
     </div>
-    <script src="main.js"></script>
+    <script src="power-plant-dashboard/main.js"></script>
 </body>
 
 </html>
